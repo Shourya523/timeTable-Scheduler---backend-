@@ -1,9 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const dotenv = require('dotenv');
-const connectDB = require('./config/database');
-const routes = require('./routes');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import dotenv from 'dotenv';
+import connectDB from './config/database.js';
+import routes from './routes/index.js';
 
 // Load environment variables
 dotenv.config();
@@ -109,4 +109,4 @@ process.on('SIGTERM', () => {
   });
 });
 
-module.exports = app;
+export default app;
