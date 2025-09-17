@@ -12,7 +12,7 @@ Ek scalable microservices design jo AI-driven timetable generation, multilingual
 
 ---
 
-## 2) Core microservices (each service = own repo, own DB where needed)
+## 2) Core microservices (each service = own DB where needed)
 
 1. **API Gateway / Edge**
 
@@ -46,7 +46,7 @@ Ek scalable microservices design jo AI-driven timetable generation, multilingual
    * Responsibilities: Master data for teachers, subjects, rooms, periods, constraints, holidays.
    * DB: Postgres (main) + Redis cache for hot reads.
 
-6. **Notifications Service**
+6. **Notifications Service** ( under progress )
 
    * Responsibilities: Email/SMS/push/webhook notifications for new timetables, canteen bookings, alerts.
    * Tech: Node or Python; integrate with SendGrid/SMTP, Twilio, FCM.
@@ -70,13 +70,14 @@ Ek scalable microservices design jo AI-driven timetable generation, multilingual
    * API: `POST /chat/query` -> returns answer, sources, followups.
 
 10. **Search & Indexing Service**
-
+    * this will be done once we have the data and the frontend endpoints to direct to
     * Responsibilities: Index all content (timetables, announcements, menus, FAQs) for multilingual search.
     * Tech: Elasticsearch or OpenSearch. Use language analyzers for i18n.
 
 11. **Frontend (Website + Admin Panel)**
 
     * Responsibilities: Multilingual Next.js (React) website, admin dashboard for CRUD, visual heatmaps, canteen UI, timetable viewer.
+    * canteen ui will be built and hosted seperately.
     * Tech: Next.js (SSG/SSR for SEO), i18n with `next-i18next` or builtin. Use client-side websockets for realtime updates.
 
 12. **Realtime / Socket Service**
